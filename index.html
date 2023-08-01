@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Snake Game</title>
+    <link rel="icon" href="./assets/icon.jpeg">
+    <link rel="stylesheet" type="text/css" href="./game/style.css">
+</head>
+<body>
+    <div class="game-wrapper">
+        <h1 class="title">Snake Game</h1>
+        <div class="score-time-wrapper">
+            <div id="score">Score: 0</div>
+            <div id="time">Time: 00:00</div>
+        </div>
+        <div id="game-container">
+            <canvas id="game" width="800" height="800"></canvas>
+        </div>
+    </div>
+
+    <div class="music-player">
+        <input type="file" id="audio-file" accept="audio/*">
+        <audio id="audio" controls autoplay>
+            <source src="./assets/music.mp3" type="audio/mpeg">
+        </audio>
+    </div>
+    
+    <script src="./game/game.js"></script>
+</body>
+</html>

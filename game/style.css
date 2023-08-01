@@ -1,0 +1,106 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    background: url('https://wallpapercave.com/wp/wp2409705.jpg');
+    background-size: cover;
+    overflow: hidden;
+    font-family: 'Arial';
+    color: white;
+}
+
+.game-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.title {
+    margin-bottom: 20px;
+    font-size: 3em;
+    text-align: center;
+    color: #FFD700;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+#game-container {
+    background-color: black;
+    border-radius: 15px;
+    width: 80vmin;
+    height: 80vmin;
+    position: relative;
+}
+
+canvas {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+.score-time-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#score, #time {
+    font-size: 1.5em;
+    text-shadow: 2px 2px 4px #000000;
+    color: #FFD700;
+}
+
+.music-player {
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 10px;
+    border-radius: 15px;
+    margin-top: 100px; 
+}
+
+#audio-file {
+    display: none;
+}
+
+#audio {
+    width: 300px;
+    height: 30px;
+}
+
+#game {
+    background-color: #000;
+    border: 1px solid #fff;
+    width: 800px;
+    height: 800px;
+    border-radius: 14px;
+}
+
+
+@media (max-width: 600px) {
+    .title {
+        font-size: 2em;
+    }
+    #score, #time {
+        font-size: 1em;
+    }
+    #audio {
+        width: 200px;
+        height: 20px;
+    }
+    #game {
+        height: 1000px; 
+    }
+}
