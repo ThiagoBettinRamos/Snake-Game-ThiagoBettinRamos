@@ -20,8 +20,6 @@ var apple = {
     x: 320,
     y: 320
 };
-var appleImage = new Image();
-appleImage.src = '../assets/apple.png';
 
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min)) + min;
@@ -79,9 +77,8 @@ function loop() {
         snake.cells.pop();
     }
 
-    
-    context.drawImage(appleImage, apple.x, apple.y, grid*1.1-1, grid*1.1-1);
-
+    context.fillStyle = 'red';
+    context.fillRect(apple.x, apple.y, grid-1, grid-1);
 
     context.fillStyle = 'green';
     snake.cells.forEach(function(cell, index) {
@@ -125,18 +122,19 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-document.getElementById('up').addEventListener('click', function() {
+document.getElementById('btn-up').addEventListener('click', function() {
     changeDirection(0, -grid);
 });
-document.getElementById('down').addEventListener('click', function() {
-    changeDirection(0, grid);
-});
-document.getElementById('left').addEventListener('click', function() {
-    changeDirection(-grid, 0);
-});
-document.getElementById('right').addEventListener('click', function() {
+document.getElementById('btn-right').addEventListener('click', function() {
     changeDirection(grid, 0);
 });
+document.getElementById('btn-down').addEventListener('click', function() {
+    changeDirection(0, grid);
+});
+document.getElementById('btn-left').addEventListener('click', function() {
+    changeDirection(-grid, 0);
+});
+
 
 document.getElementById('audio-file').addEventListener('change', function(e) {
     const file = e.target.files[0];
