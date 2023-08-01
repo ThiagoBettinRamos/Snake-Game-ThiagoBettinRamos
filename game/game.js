@@ -102,23 +102,40 @@ function loop() {
     });
 }
 
+function changeDirection(dx, dy) {
+    if ((snake.dx * dx) + (snake.dy * dy) !== 0) {
+        return;
+    }
+    snake.dx = dx;
+    snake.dy = dy;
+}
+
 document.addEventListener('keydown', function(e) {
-    if (e.which === 37 && snake.dx === 0) {
-        snake.dx = -grid;
-        snake.dy = 0;
+    if (e.which === 37) {
+        changeDirection(-grid, 0);
     }
-    else if (e.which === 38 && snake.dy === 0) {
-        snake.dy = -grid;
-        snake.dx = 0;
+    else if (e.which === 38) {
+        changeDirection(0, -grid);
     }
-    else if (e.which === 39 && snake.dx === 0) {
-        snake.dx = grid;
-        snake.dy = 0;
+    else if (e.which === 39) {
+        changeDirection(grid, 0);
     }
-    else if (e.which === 40 && snake.dy === 0) {
-        snake.dy = grid;
-        snake.dx = 0;
+    else if (e.which === 40) {
+        changeDirection(0, grid);
     }
+});
+
+document.getElementById('up').addEventListener('click', function() {
+    changeDirection(0, -grid);
+});
+document.getElementById('down').addEventListener('click', function() {
+    changeDirection(0, grid);
+});
+document.getElementById('left').addEventListener('click', function() {
+    changeDirection(-grid, 0);
+});
+document.getElementById('right').addEventListener('click', function() {
+    changeDirection(grid, 0);
 });
 
 document.getElementById('audio-file').addEventListener('change', function(e) {
@@ -131,8 +148,5 @@ document.getElementById('audio-file').addEventListener('change', function(e) {
         audio.play(); // play audio after it's loaded
     };
 });
-
-
-
 
 requestAnimationFrame(loop);
